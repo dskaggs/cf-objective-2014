@@ -1,7 +1,0 @@
-{
-  "name": "getting-started-with-mongodb-for-cfml-developers",
-  "version": "0.0.0",
-  "dependencies": {
-    "reveal.js": "~2.6.1"
-  }
-}
