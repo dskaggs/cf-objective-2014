@@ -2,20 +2,25 @@
     "index.md",
     "who-is-this-old-guy.html",
     "why-are-we-here.html",
+    [
+        "what-is-mongodb.html",
+        "table-vs-document.html"
+    ],
     "why-mongodb.html",
     [
         "install-it-already.html",
         "mac-installations.html",
-        "windows-installations.html",
-        "other-os-installations.html"
+        "windows-installations.html"
     ],
     [
         "now-what.html",
         "crash.html",
-        "configure-your-data-directories.html"
+        "configure-your-data-directories.html",
+        "successful-start.html"
     ],
     [
         "hook-me-up.html",
+        "command-line-client.html",
         "cfmongodb.html",
         "railo-extension.html"
     ],
