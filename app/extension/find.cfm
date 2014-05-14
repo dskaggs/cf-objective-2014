@@ -1,13 +1,8 @@
 <cfsilent>
 
 	<cfscript>
-		db=MongoDBConnect("census","localhost", 27017);
-
-		zip = db.zipcodes.find({
-									'state': 'MN',
-									'city': 'MINNEAPOLIS'
-								  }).cull(2).limit(1).toArray();
-
+		results = application.mongo.zipcodes.find({'state': 'MN','city': 'MINNEAPOLIS'});
+		resultsArray = application.mongo.zipcodes.find({'state': 'MN','city': 'MINNEAPOLIS'}).toArray();
 	</cfscript>
 
 </cfsilent>
@@ -17,20 +12,42 @@
 
 	<head>
 		<title>Railo / MongoDB :: findOne()</title>
-		<link rel="stylesheet" href="../style.css"  >
+		<style><cfinclude template="../style.css" /></style>
 	</head>
 
+	<body>
 
-</html>
+		<h1>find() - Railo Extension</h1>
+
+		<h2>Default find() - Returns a MongoDB Cursor</h2>
 
 <pre>
-db=MongoDBConnect("census","localhost", 27017);
+results = application.mongo.zipcodes.find({
+                                           'state': 'MN',
+                                           'city': 'MINNEAPOLIS'
+                                          });
+while( results.hasNext() ){
+    zip = results.next();
+    //do stuff
+}
+</pre>
 
-zip = db.zipcodes.find({
-                        'state': 'MN',
-                        'city': 'MINNEAPOLIS'
-                       }).skip(2).limit(1).toArray();
+		<cfdump var="#results#" />
+
+<hr width="95%" size="2">
+
+<h2>find.toArray() - Returns an array of documents</h2>
+
+<pre>
+resultsArray = application.mongo.zipcodes.find({
+                                                'state': 'MN',
+                                                'city': 'MINNEAPOLIS'
+                                               }).toArray();
 
 </pre>
 
-<cfdump var="#zip#" />
+		<cfdump var="#resultsArray#" expand="false" />
+
+	</body>
+</html>
+

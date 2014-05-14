@@ -1,10 +1,7 @@
 <cfsilent>
 
 	<cfscript>
-		db=MongoDBConnect("census","localhost", 27017);
-
-		zip = db.zipcodes.findOne();
-
+		zip = application.mongo.zipcodes.findOne();
 	</cfscript>
 
 </cfsilent>
@@ -14,18 +11,21 @@
 
 	<head>
 		<title>Railo / MongoDB :: findOne()</title>
-		<link rel="stylesheet" href="../style.css"  >
+		<style><cfinclude template="../style.css" /></style>
 	</head>
+
+	<body>
+		<h1>findOne() - Railo Extension</h1>
+
+<pre>
+zip = application.mongo.zipcodes.findOne();
+</pre>
+
+	<cfdump var="#zip#" />
+
+	</body>
+
+
 
 
 </html>
-
-<pre>
-db=MongoDBConnect("census","localhost", 27017);
-
-zip = db.zipcodes.findOne();
-
-</pre>
-
-<cfdump var="#zip#" />
-
