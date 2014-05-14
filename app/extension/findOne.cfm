@@ -1,7 +1,7 @@
 <cfsilent>
 
 	<cfscript>
-		zip = application.mongo.zipcodes.findOne();
+		student = application.mongo.students.findOne();
 	</cfscript>
 
 </cfsilent>
@@ -18,10 +18,10 @@
 		<h1>findOne() - Railo Extension</h1>
 
 <pre>
-zip = application.mongo.zipcodes.findOne();
+student = application.mongo.students.findOne();
 </pre>
 
-	<cfdump var="#zip#" />
+	<cfdump var="#student#" expand="false"/>
 
 	</body>
 

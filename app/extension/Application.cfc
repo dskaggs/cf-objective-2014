@@ -9,7 +9,7 @@ component output="false" {
 		}
 
 		if( !structKeyExists( application, "mongo" ) ){
-			application.mongo=MongoDBConnect("census","localhost", 27017);
+			application.mongo=MongoDBConnect("grades","localhost", 27017);
 
 		}
 	}

@@ -1,6 +1,9 @@
 component output="false" {
 
 	function onApplicationStart(){
+		var mongoConfig = createObject('component','cfmongodb.core.MongoConfig').init(dbName="grades");
+		application.mongo = createObject('component','cfmongodb.core.MongoClient').init(mongoConfig);
+
 	}
 
 	function onRequestStart(){
@@ -8,7 +11,7 @@ component output="false" {
 			onApplicationStart();
 		}
 		if( !structKeyExists( application, "mongo" ) ){
-			var mongoConfig = createObject('component','cfmongodb.core.MongoConfig').init(dbName="census");
+			var mongoConfig = createObject('component','cfmongodb.core.MongoConfig').init(dbName="grades");
 			application.mongo = createObject('component','cfmongodb.core.MongoClient').init(mongoConfig);
 		}
 	}
