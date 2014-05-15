@@ -1,8 +1,8 @@
 <cfsilent>
 
 	<cfscript>
-		results = application.mongo.zipcodes.find({'state': 'MN','city': 'MINNEAPOLIS'});
-		resultsArray = application.mongo.zipcodes.find({'state': 'MN','city': 'MINNEAPOLIS'}).toArray();
+		results = application.mongo.customers.find({'Country': 'Germany'});
+		resultsArray = application.mongo.customers.find({'Country': 'Germany'}).toArray();
 	</cfscript>
 
 </cfsilent>
@@ -22,10 +22,8 @@
 		<h2>Default find() - Returns a MongoDB Cursor</h2>
 
 <pre>
-results = application.mongo.zipcodes.find({
-                                           'state': 'MN',
-                                           'city': 'MINNEAPOLIS'
-                                          });
+results = application.mongo.zipcodes.find({'Country': 'Germany'});
+
 while( results.hasNext() ){
     zip = results.next();
     //do stuff
@@ -39,11 +37,7 @@ while( results.hasNext() ){
 <h2>find.toArray() - Returns an array of documents</h2>
 
 <pre>
-resultsArray = application.mongo.zipcodes.find({
-                                                'state': 'MN',
-                                                'city': 'MINNEAPOLIS'
-                                               }).toArray();
-
+resultsArray = application.mongo.zipcodes.find({'Country': 'Germany'}).toArray();
 </pre>
 
 		<cfdump var="#resultsArray#" expand="false" />

@@ -1,8 +1,8 @@
 <cfsilent>
 
 	<cfscript>
-		collection = application.mongo.getDBCollection( "students" );
-		student = collection.findOne();
+		customers = application.mongo.getDBCollection( "customers" );
+		customer = customers.findOne();
 	</cfscript>
 
 </cfsilent>
@@ -18,11 +18,11 @@
 	<body>
 		<h1>findOne() - CFMongoDB</h1>
 <pre>
-collection = application.mongo.getDBCollection( "student" );
-student = collection.findOne();
+customers = application.mongo.getDBCollection( "customers" );
+customer = customers.findOne();
 </pre>
 
-		<cfdump var="#student#" expand="false"/>
+		<cfdump var="#customer#" expand="false"/>
 
 	</body>
 

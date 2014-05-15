@@ -1,19 +1,16 @@
 <cfsilent>
 
 	<cfscript>
-		zipcodes = application.mongo.getDBCollection( "zipcodes" );
-		results = zipcodes.query()
-						  .$eq("state", "MN")
-						  .$eq("city", "MINNEAPOLIS")
+		collection = application.mongo.getDBCollection( "customers" );
+		customers = collection.query()
+						  .$eq("Country", "Germany")
 						  .find();
-		resultsArray = zipcodes.query()
-							   .$eq("state", "MN")
-							   .$eq("city", "MINNEAPOLIS")
+		customersArray = collection.query()
+							   .$eq("Country", "Germany")
 							   .find()
 							   .asArray();
-		resultsCursor = zipcodes.query()
-							    .$eq("state", "MN")
-							    .$eq("city", "MINNEAPOLIS")
+		customersCursor = collection.query()
+							    .$eq("Country", "Germany")
 							    .find()
 							    .asCursor();
 	</cfscript>
@@ -33,14 +30,13 @@
 
 <h2>Default find() - Returns a SearchResult object</h2>
 <pre>
-zipcodes = application.mongo.getDBCollection( "zipcodes" );
-results = zipcodes.query()
-                  .$eq("state", "MN")
-                  .$eq("city", "MINNEAPOLIS")
-                  .find();
+collection = application.mongo.getDBCollection( "zipcodes" );
+customers = collection.query()
+                      .$eq("Country", "Germany")
+                      .find();
 </pre>
 
-		<cfdump var="#results#" expand="false" />
+		<cfdump var="#customers#" expand="false" />
 
 
         <hr width="95%" size="2">
@@ -48,34 +44,33 @@ results = zipcodes.query()
 <h2>find.asArray() - Returns an array of documents</h2>
 
 <pre>
-zipcodes = application.mongo.getDBCollection( "zipcodes" );
-resultsArray = zipcodes.query()
-                       .$eq("state", "MN")
-                       .$eq("city", "MINNEAPOLIS")
-                       .find()
-                       .asArray();
+collection = application.mongo.getDBCollection( "zipcodes" );
+customersArray = collection.query()
+                           .$eq("Country", "Germany")
+                           .find()
+                           .asArray();
 </pre>
 
-		<cfdump var="#resultsArray#" expand="false" />
+		<cfdump var="#customersArray#" expand="false" />
 
 		<hr width="95%" size="2">
 
 		<h2>find.toCursor() - Returns a MongoDB cursor</h2>
 
 <pre>
-zipcodes = application.mongo.getDBCollection( "zipcodes" );
-resultsCursor = zipcodes.query()
-                        .$eq("state", "MN")
-                        .$eq("city", "MINNEAPOLIS")
-                        .find()
-                        .asCursor();
-while( resultsCursor.hasNext() ){
-    zip = resultsCursor.next();
+collection = application.mongo.getDBCollection( "zipcodes" );
+customersCursor = collection.query()
+                            .$eq("Country", "Germany")
+                            .find()
+                            .asCursor();
+
+while( customersCursor.hasNext() ){
+    customer = customersCursor.next();
     //do stuff
 }
 </pre>
 
-		<cfdump var="#resultsCursor#" expand="false"/>
+		<cfdump var="#customersCursor#" expand="false"/>
 
 	</body>
 

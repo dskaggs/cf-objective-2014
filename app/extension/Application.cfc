@@ -1,6 +1,7 @@
 component output="false" {
 
 	function onApplicationStart(){
+		application.mongo=MongoDBConnect("northwind","localhost", 27017);
 	}
 
 	function onRequestStart(){
@@ -9,7 +10,7 @@ component output="false" {
 		}
 
 		if( !structKeyExists( application, "mongo" ) ){
-			application.mongo=MongoDBConnect("grades","localhost", 27017);
+			application.mongo=MongoDBConnect("northwind","localhost", 27017);
 
 		}
 	}

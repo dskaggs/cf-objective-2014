@@ -1,7 +1,7 @@
 <cfsilent>
 
 	<cfscript>
-		student = application.mongo.students.findOne();
+		customer = application.mongo.customers.findOne();
 	</cfscript>
 
 </cfsilent>
@@ -18,10 +18,10 @@
 		<h1>findOne() - Railo Extension</h1>
 
 <pre>
-student = application.mongo.students.findOne();
+customer = application.mongo.customers.findOne();
 </pre>
 
-	<cfdump var="#student#" expand="false"/>
+	<cfdump var="#customer#" expand="false"/>
 
 	</body>
 

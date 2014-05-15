@@ -1,6 +1,9 @@
 <cfsilent>
 	<cfscript>
-		results = application.mongo.zipcodes.find({'state': 'MN','city': 'MINNEAPOLIS'},{'pop': 1}).toArray();
+		customersArray = application.mongo.customers.find(
+															{'Country': 'Germany'},
+															{'ContactName': 1, 'Phone': 1, 'Fax': 1}
+													   	 ).toArray();
 	</cfscript>
 
 </cfsilent>
@@ -18,16 +21,13 @@
 		<h1>Projections - Railo Extension</h1>
 
 <pre>
-results = application.mongo.zipcodes.find({
-                                           'state': 'MN',
-                                           'city': 'MINNEAPOLIS'
-                                          },
-                                          {'pop': 1}
-	                                 )
-	                                 .toArray();
+customersArray = application.mongo.customers.find(
+                                                  {'Country': 'Germany'},
+                                                  {'ContactName': 1, 'Phone': 1, 'Fax': 1}
+                                                 ).toArray();
 </pre>
 
-		<cfdump var="#results#" expand="false" abort="false"/>
+		<cfdump var="#customersArray#" expand="false" abort="false"/>
 
 	</body>
 </html>

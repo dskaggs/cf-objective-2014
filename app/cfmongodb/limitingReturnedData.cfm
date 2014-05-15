@@ -1,10 +1,10 @@
 <cfsilent>
 	<cfscript>
-		zipcodes = application.mongo.getDBCollection( "zipcodes" );
-		results = zipcodes.query()
-						  .$eq("state", "MN")
-						  .$eq("city", "MINNEAPOLIS")
-						  .find(keys="pop");
+		collection = application.mongo.getDBCollection( "customers" );
+		customersArray = collection.query()
+							       .$eq("Country", "Germany")
+							       .find(keys="ContactName,Phone,Fax")
+							       .asArray();
 	</cfscript>
 
 </cfsilent>
@@ -22,14 +22,14 @@
 		<h1>Projections - CFMongoDB</h1>
 
 <pre>
-zipcodes = application.mongo.getDBCollection( "zipcodes" );
-results = zipcodes.query()
-                  .$eq("state", "MN")
-                  .$eq("city", "MINNEAPOLIS")
-                  .find(keys="pop");
+collection = application.mongo.getDBCollection( "customers" );
+customersArray = collection.query()
+                           .$eq("Country", "Germany")
+                           .find(keys="ContactName,Phone,Fax")
+                           .asArray();
 </pre>
 
-		<cfdump var="#results.asArray()#" expand="false" abort="false"/>
+		<cfdump var="#customersArray#" expand="false" abort="false"/>
 
 	</body>
 </html>
