@@ -30,7 +30,7 @@
 
 <h2>Default find() - Returns a SearchResult object</h2>
 <pre>
-collection = application.mongo.getDBCollection( "zipcodes" );
+collection = application.mongo.getDBCollection( "customers" );
 customers = collection.query()
                       .$eq("Country", "Germany")
                       .find();
@@ -44,7 +44,7 @@ customers = collection.query()
 <h2>find.asArray() - Returns an array of documents</h2>
 
 <pre>
-collection = application.mongo.getDBCollection( "zipcodes" );
+collection = application.mongo.getDBCollection( "customers" );
 customersArray = collection.query()
                            .$eq("Country", "Germany")
                            .find()
@@ -58,7 +58,7 @@ customersArray = collection.query()
 		<h2>find.toCursor() - Returns a MongoDB cursor</h2>
 
 <pre>
-collection = application.mongo.getDBCollection( "zipcodes" );
+collection = application.mongo.getDBCollection( "customers" );
 customersCursor = collection.query()
                             .$eq("Country", "Germany")
                             .find()
